@@ -1,0 +1,238 @@
+* { /* Reset de styles par défaut*/
+    list-style: none; 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+a { /* Retire style par défaut des liens*/
+    color: inherit;
+    text-decoration: none;
+}
+
+body { /* Ajout de l'image de fond et de la police */
+    font-family: 'Open Sans', sans-serif;
+    background-image:url(img/background.jpg) ; 
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-position: center top;
+    background-attachment: fixed;
+}
+
+#container { /* Création d'un conteneur taille écran avec pour marge le background latéral */ 
+margin-left: auto;
+margin-right: auto;
+width: 960px;
+}
+
+header { /* Création d'un header à une position comprenant logo + barre */
+    display: flex;
+    position: relative; 
+    height: 130px;
+    top: 0px;
+}
+
+#logo { /* Positionnement du logo en marge du header */
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 23px;
+}
+
+#top-bar { /* Création d'une top bar aux dimensions et couleurs demandées*/
+    display: flex;
+    background-color: #0056af; /* Couleur de fond */
+    height: 44px; /* Hauteur de la barre (cf. maquette) */
+    width: 960px; /* Largeur de la barre (cf. maquette) */
+}
+
+    #top-bar > ul{ /* Alignement de l'ul en ligne */
+        display: inline-flex;
+    }
+    
+    #top-bar > ul > li { /* Mise en forme des 1ers éléments liste de l'ul */
+        display: flex;
+        align-items: center; /* Centre le contenu */
+        font-weight: bold; /* Texte en gras */
+        text-align: center; /* Centre le texte */
+        color: #fff; /* Couleur du texte */
+        font-size: 14px; /* Taille de la police */
+        padding: 0px 12px 0px 12px; /* Centre dans des marges */
+    }   
+
+         #top-bar .menu li:hover { /* Gestion du survol par la souris */
+            cursor: pointer; /* Sélectionne au pointage */
+            background-color: #b9d1f3; /* couleur de fond */
+            color: #144c96;
+        } 
+
+        #top-bar .menu .list-hidden { /* Bordure pour la li fantôme */
+            border-left: dotted;
+            border-color: #fff;
+        }
+
+        #top-bar .menu .list-hidden:hover { /* Rend invisible au survol */
+            cursor: default;
+            background-color: #0056af ;
+        }
+
+        #top-bar .list-brands { /* Bordure de la li par marque */
+            border-left: dotted; /* Bordure gauche en pointillé */
+            border-color: #fff; /* Couleur de bordure */
+        }
+
+        #top-bar .menu .list-brands ul { /* Style de la liste déroulante */
+            display: none; /* Cache la liste */
+            position: absolute;
+            overflow: hidden; /* Masque l'élément en lui conservant son espace dans la page */
+            min-width: 13%; /* Largeur minimale */
+            background: #b9d1f3;
+            color: #00060e;
+            text-align: justify; /* Justifie les textes dans leur bloc */
+            z-index: 1; /* Empilement au dessus du parent */
+            margin-left: 117px;
+            font-size: 12px;
+        }   
+
+           .menu li:hover > ul { /* En bloc au survol */
+                display: block !important;
+            }
+
+            .menu .list-brands:hover { /* Retire la bordure lors du survol */
+                border-left: none !important;
+            }
+        
+        .menu ul a { /* Disposition des liens du menu déroulant */
+            display: block;
+            padding: 15px;
+        }
+
+        .menu > li > ul { /* Position de la lsite déroulante vis à vis du parent */
+            left: 10px;
+            top: 102%;
+        }
+
+        .menu .list-brands li { /* Définition de la marge intérieure à la liste déroulante */
+            margin-top: -12px;
+        }
+
+
+.title { /* Mise en page du bloc titre */
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 60px;
+    font-size: 14px;
+}
+
+    .title h1 { /* padding bas entre le titre h1 et le select, le cas échéant*/
+        padding-bottom: 8px;
+    }   
+
+.container-toys { /* Création d'un conteneur regroupant les jouets */
+    display: flex;
+    flex-wrap: wrap; /* Passage auto des blocs à la ligne suivante */
+}
+
+.toy { /* Bloc pour les éléments de jouet / div contenant .img/.name/.price */
+    flex-wrap: wrap;
+    padding: 15px;
+    text-align: center;
+    flex-basis: 320px; /* Dimension initiale du bloc pour ajustement dans la flexbox */
+}
+
+    .toy-name { /* Style du nom de jouet */
+        color: #003d90;
+        font-weight: 700;
+        flex-grow: 1; /* Aligne le prix */
+    }
+
+    .toy-price { /* Style du prix du joeut */
+        font-size: 28px;
+    }
+
+    .toy-img img { /* Dimension figée des images */
+        width: 220px;
+        height: 220px;
+    }
+
+    .toy > a { /* Position du lien qui est conteneur des blocs toy */
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+/* bloc englobant du détail jouet */
+.bloc-description{
+    display: flex;
+
+}
+
+    .bloc-description .name-brand-stock { /* Classe comprenant le nom marque ainsi que le nom stock pour changement de couleur */
+        color: #003d90;
+    }
+
+    .bloc-description .result-brand-stock { /* Classe pour mise en gras des marques et quantités de stock */
+        font-weight: 700;
+    }
+    
+/* Bloc droit du détail des jouets*/
+.bloc-r {
+    padding-left: 20px;
+}
+
+    .bloc-r p {
+        padding: 8px;
+    }
+
+
+/* Bloc gauche du détail des jouets*/
+.bloc-l {
+    padding-left: 60px;
+}
+
+    .bloc-l select{
+        width: 120px;
+    }
+
+    .bloc-l .toy-price{
+        font-size: 44px;
+    }
+
+    .bloc-l form {
+        padding-top: 18px;
+    }
+
+    .bloc-l .result-brand-stock {
+        padding-top: 6px;
+    }
+
+
+/* Gestion des erreurs URL*/    
+.error-url {
+    text-align: center;
+    color: #000000;
+    font-size: 25px;
+    font-weight: 700;
+    padding-top: 18px;
+
+}
+
+    .error-url p {
+        padding-top: 12px;
+    }
+
+    .oops {
+       color: #0056D2;
+       text-decoration: underline dotted;
+ }
+
+    .tonton {
+        max-width: 25%;
+        height: auto;
+        padding-top: 15px;
+    }
+
+    .accueil {
+        color:#0055D2 ;
+        text-decoration: underline;
+    }
